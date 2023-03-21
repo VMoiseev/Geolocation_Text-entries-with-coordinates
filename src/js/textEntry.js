@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import save from './storage';
 
 export default class Message {

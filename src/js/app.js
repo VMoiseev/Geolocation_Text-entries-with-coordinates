@@ -1,5 +1,3 @@
-/* eslint-disable no-alert */
-/* eslint-disable no-console */
 // TODO: write code here
 
 import getTime from './time';
@@ -15,35 +13,22 @@ const input = document.querySelector('.input');
 
 load();
 
-function getLocation() {
-  modal.style.display = 'block';
-  inputModal.focus();
-}
-
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   const { value } = inputMessage;
   const time = getTime();
   let coords = null;
-  if (navigator.geolocation) {
-    const locationCoords = () => new Promise(((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          resolve(position);
-        }, (error) => {
-          console.log(error);
-          reject(getLocation());
-        },
-      );
-    }));
 
-    locationCoords().then((position) => {
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
       coords = `[${position.coords.latitude}, -${position.coords.longitude}]`;
       createMessage(time, value, coords);
-    });
-  } else {
-    getLocation(time, value);
-  }
+    },
+    () => {
+      modal.style.display = 'block';
+      inputModal.focus();
+    },
+  );
 });
 
 const locationForm = document.querySelector('.locationForm');

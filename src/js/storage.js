@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+// eslint-disable-next-line import/no-cycle
 import { createMessage } from './textEntry';
 
 const allMessages = [];

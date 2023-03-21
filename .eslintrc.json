@@ -6,6 +6,8 @@
      "jest": true
   },
   "rules": {
+    "no-alert": "off",
+    "no-console": "off",
     "no-restricted-syntax": [
       "error",
       "LabeledStatement",
