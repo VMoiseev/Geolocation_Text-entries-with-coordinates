@@ -5,7 +5,7 @@ export default function getCoords(value) {
 
   if (/^\[?-?\d{1,2}\.\d{1,9}\]?$/.test(latitude)
     && /^\[?-?\d{1,2}\.\d{1,9}\]?$/.test(longitude)) {
-    return true;
+    return coorArr;
   }
 
   return false;
