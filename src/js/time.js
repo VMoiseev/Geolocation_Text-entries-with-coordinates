@@ -8,7 +8,7 @@ export default function getTime() {
 
   let month = now.getMonth();
   if (month < 10) {
-    month = `0${month}`;
+    month = `0${month + 1}`;
   }
 
   const year = now.getFullYear();
