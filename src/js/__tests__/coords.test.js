@@ -1,11 +1,11 @@
-import getCoords from '../coords';
+import validate from '../validateCoords';
 
 test.each([
   ['51.50851, -0.12572', true],
   ['51.50851,-0.12572', true],
   ['[51.50851, -0.12572]', true],
   ['[51, -0.12572]', false],
-])(('проверка введенных координат'), (input, expected) => {
-  const result = getCoords(input);
+])(('проверка введенных координат'), (value, expected) => {
+  const result = validate(value);
   expect(result).toEqual(expected);
 });
